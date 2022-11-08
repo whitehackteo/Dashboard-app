@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    margin-left: 80px;
+    margin-top: 80px;
+    transition: margin-left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+main{
+    padding: 20px;
+    text-align: center;
+}
+
+header{
+    width: 100%;
+    height: 80px;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+}
+
+.icon__menu{
+    width: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(10px);
+}
+
+.icon__menu i{
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+}
+
+.menu__side{
+    width: 80px;
+    height: 100%;
+    background: #1783db;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    font-size: 18px;
+    z-index: 300;
+    overflow: hidden;
+    overflow-y: scroll;
+    border-right: 20px solid #1783db;
+    transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+/*Ocultar scroll para chrome, safari y opera*/
+.menu__side::-webkit-scrollbar{
+    display: none;
+}
+
+/*Ocultar scroll para IE, Edge y Firefox*/
+.menu__side{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+.name__page{
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.name__page i{
+    width: 20px;
+    margin-right: 20px;
+}
+
+.options__menu{
+    padding: 20px 30px;
+    position: absolute;
+    top: 80px;
+}
+
+.options__menu a{
+    color: white;
+    cursor: default;
+    display: block;
+    position: relative;
+    transition: color 300ms;
+}
+
+.options__menu a:hover{
+    color: white;
+}
+
+.options__menu .option{
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.options__menu .option i{
+    width: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.options__menu .option h4{
+    font-weight: 300;
+    cursor: pointer;
+}
+
+a.selected{
+    color: #fff;
+}
+
+.selected:before{
+    content: '';
+    width: 3px;
+    height: 80%;
+    background: white;
+    position: absolute;
+    top: 10%;
+    left: -30px;
+}
+
+/*Clases para usar en JavaScript*/
+
+.body_move{
+    margin-left: 250px;
+}
+
+.menu__side_move{
+    width: 250px;
+}
+
+
+.search-bar {
+    display: flex;
+
+}
+.search-bar input,
+.searsh-button,
+.searsh-button:before,
+.searsh-button:after {
+     transition: all 0.25s ease-out;
+}
+.search-bar input,
+.searsh-button {
+     width: 3em;
+     height: 3em;
+ }
+        
+.search-bar input:invalid:not(:focus),
+.searsh-button {
+    cursor: pointer;
+}
+        
+.search-bar,
+.search-bar input:focus,
+.search-bar input:valid {
+     width: 100%;
+ }
+        
+.search-bar input:focus,
+.search-bar input:not(:focus)+.searsh-button:focus {
+     outline: transparent;
+ }
+        
+.search-bar {
+    margin: auto;
+    padding: 1.5em;
+    justify-content: right;
+    max-width: 30em;
+    margin-right: 80px;
+}
+        
+.search-bar input {
+    background: transparent;
+    border-radius: 1.5em;
+    box-shadow: 0 0 0 0.4em #f1f1f1 inset;
+    padding: 0.75em;
+    transform: translate(0.5em, 0.5em) scale(0.5);
+    transform-origin: 100% 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+        
+.search-bar input:focus,
+.search-bar input:valid {        
+    background: white;
+    border-radius: 0.375em 0 0 0.375em;
+    box-shadow: 0 0 0 0.1em #CBBDDB inset;
+    transform: scale(1);       
+}
+        
+.searsh-button {
+    background: #f1f1f1;
+    border-radius: 0 0.75em 0.75em 0 / 0 1.5em 1.5em 0;
+    padding: 0.75em;
+    position: relative;
+    transform: translate(0.25em, 0.25em) rotate(45deg) scale(0.25, 0.125);
+    transform-origin: 0 50%;
+}        
+        
+.searsh-button:before,
+.searsh-button:after {
+    content: "";
+    display: block;
+    opacity: 0;
+    position: absolute;
+}        
+        
+.searsh-button:before {
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.2em #f1f1f1 inset;
+    top: 0.75em;
+    left: 0.75em;
+    width: 1.2em;
+    height: 1.2em;
+}        
+        
+.searsh-button:after {
+    background: #f1f1f1;
+    border-radius: 0 0.25em 0.25em 0;
+    top: 51%;
+    left: 51%;
+    width: 0.75em;
+    height: 0.25em;
+    transform: translate(0.2em, 0) rotate(45deg);
+    transform-origin: 0 50%;
+}        
+        
+.searsh-button span {
+    display: inline-block;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+}        
+        
+input[type="search"]::-webkit-search-cancel-button {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 10px;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 43%, #CBBDDB 45%, #CBBDDB 55%, rgba(0, 0, 0, 0) 57%, rgba(0, 0, 0, 0) 100%), linear-gradient(135deg, transparent 0%, transparent 43%, #CBBDDB 45%, #CBBDDB 55%, transparent 57%, transparent 100%);
+}        
+        /* Active state */
+        
+.search-bar input:focus+.searsh-button,
+.search-bar input:valid+.searsh-button {
+    background: #1783db;
+    border-radius: 0 0.375em 0.375em 0;
+    transform: scale(1);
+}        
+        
+.search-bar input:focus+.searsh-button:before,
+.search-bar input:focus+.searsh-button:after,
+.search-bar input:valid+.searsh-button:before,
+.search-bar input:valid+.searsh-button:after {
+    opacity: 1;
+}
+        
+.search-bar input:focus+.searsh-button:active,
+.search-bar input:valid+.searsh-button:active {
+    transform: translateY(1px);
+}
+
+h1 {
+    position: relative;
+    font-size: 5rem;
+    color: rgba(255, 0, 0, 0.603);
+  }
+  
+  h1::before {  
+    transform: scaleX(0);
+    transform-origin: bottom right;
+  }
+  
+  h1:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  h1::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0; 
+    background: #1783db;
+    z-index: -1;
+    transition: transform .3s ease;
+  } 
+
+.canvas{
+    width: 40%;
+    height: 40%;
+    display: block;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+.contenedor {
+	width: 90%;
+	max-width: 1000px;
+	margin: 40px auto 100px auto;
+
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 40px;
+}
+
+.contenedor .pelicula {
+	text-align: center;
+}
+
+.contenedor .pelicula .titulo {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.contenedor .pelicula .poster {
+	width: 100%;
+	margin-bottom: 10px;
+	border-radius: 15px;
+    
+}
+
+.paginacion {
+	position: fixed;
+	bottom: 0;
+	background: #1783db;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	padding: 10px;
+    margin-left: -5%;
+    
+}
+
+.paginacion button {
+	cursor: pointer;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	height: 50px;
+	width: 200px;
+	background: #068dfc;
+	color: #fff;
+	border-radius: 100px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	transition: .3s ease all;
+}
+
+.paginacion button:hover {
+	background: #044888;
+}
+@media screen and (max-width: 760px){
+    .body_move{
+        margin-left: 0px;
+    }
+
+    .menu__side_move{
+        width: 80px;
+        left: -80px;
+    }
+}
